@@ -1,0 +1,88 @@
+================================================================================
+EVERY COMPLAINT HEARD
+ARCHITECTURE & TECHNICAL DOCUMENTATION
+Gujarat Metro Hackathon - PS-07
+================================================================================
+
+1. ARCHITECTURAL OVERVIEW
+--------------------------------------------------------------------------------
+"Every Complaint Heard" is an offline-first, local-AI powered web application 
+designed for Gujarat Metro station controllers. It enables rapid triage, 
+translation, and resolution of passenger complaints without relying on cloud 
+services, ensuring operational continuity even during internet outages.
+
+The architecture is divided into two main decoupled services:
+- A FastAPI Python Backend acting as the local server and AI orchestrator.
+- A React SPA (Single Page Application) Frontend serving as the controller's UI.
+
+2. BACKEND ARCHITECTURE (Python / FastAPI)
+--------------------------------------------------------------------------------
+The backend follows a modular, domain-driven structure:
+
+[ API Layer (app/api/) ]
+- Handles HTTP requests, input validation via Pydantic schemas, and response 
+  formatting.
+- Endpoints are split into: 
+  * complaints.py (CRUD, Import, Reclassify)
+  * dashboard.py (Analytics aggregations)
+  * system.py (AI status probing, Sync triggering)
+
+[ Core Business Logic (app/core/) ]
+- ai_engine.py: Communicates with the local Ollama instance via HTTP. Enforces 
+  strict JSON schema validation on the LLM's output. Applies "Safety Overrides" 
+  if the LLM fails to detect an emergency.
+- classifier.py: The deterministic offline fallback. Uses regex and keyword 
+  weighting across English, Hindi, and Gujarati. If the AI is down or times out, 
+  this instantly classifies the complaint and scores urgency.
+- sync_service.py: Manages the "Outbox Pattern". Records modifications locally 
+  and attempts to push them to a remote central server with exponential backoff.
+
+[ Data Access Layer (app/db/) ]
+- models.py: SQLAlchemy declarative models for SQLite.
+- database.py: Async DB engine initialization.
+- Uses `aiosqlite` for non-blocking asynchronous file I/O, vital for handling 
+  batch imports without freezing the event loop.
+
+3. FRONTEND ARCHITECTURE (React / Vite)
+--------------------------------------------------------------------------------
+The frontend is a lightweight, blazing-fast React application.
+
+[ Global State & Context ]
+- Minimal state management relying on React Context (for Toasts) and standard 
+  React hooks for component-level state. Data fetching is isolated in a shared 
+  `api.js` Axios wrapper.
+
+[ UI & Design System ]
+- Built completely from scratch using Vanilla CSS (index.css) to ensure a 
+  highly customized, premium "glassmorphic" aesthetic.
+- Avoids heavy UI frameworks to keep bundle size small and performance high.
+- Incorporates `Recharts` for SVGs rendering the Dashboard statistics.
+
+[ Routing ]
+- Uses `react-router-dom` for client-side navigation.
+- Views include: Dashboard, Complaints Queue, Detailed Triage View, Batch Import.
+
+4. OFFLINE-FIRST CAPABILITIES
+--------------------------------------------------------------------------------
+The strict requirement for "offline-first" operations is achieved via:
+1. SQLite Database: Resides locally on the controller's PC. Application restarts 
+   never lose data.
+2. Ollama Integration: The LLM (`llama3.1`) runs on the host machine's GPU/CPU. 
+   No calls are made to OpenAI/Anthropic/Google cloud services.
+3. Outbox Sync Pattern: Network requests to the central Metro HQ server are never 
+   blocking. If offline, the complaint gets a "Pending Sync" tag and queues up.
+
+5. SECURITY & RELIABILITY 
+--------------------------------------------------------------------------------
+- Test Coverage: 38 automated Pytest scenarios cover the backend.
+- Safety Override: The system never trusts the LLM implicitly. If a passenger 
+  types "Fire", the deterministic `classifier.py` guarantees an 80+ Critical 
+  score, even if the LLM hallucinated a Low priority.
+- Idempotent Imports: Batch uploading a JSON or CSV file skips duplicates based 
+  on UUIDs, preventing database bloat.
+- Input Validation: Pydantic ensures malformed data is rejected at the API boundary 
+  before ever touching the database.
+
+================================================================================
+END OF DOCUMENTATION
+================================================================================

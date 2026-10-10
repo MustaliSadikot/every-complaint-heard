@@ -1,0 +1,162 @@
+[
+  {
+    "id": "SAMPLE-001",
+    "text": "There is a fire on Platform 2 near the exit gate! People are panicking!",
+    "language": "en",
+    "station": "Kalupur",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T08:15:00Z"
+  },
+  {
+    "id": "SAMPLE-002",
+    "text": "Platform par aag lag gayi hai aur log chot kha rahe hain, turant help chahiye",
+    "language": "hi",
+    "station": "Apparel Park",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T09:00:00Z"
+  },
+  {
+    "id": "SAMPLE-003",
+    "text": "Aag lagvi chhe, dhumo ave chhe, help karo please!",
+    "language": "gu",
+    "station": "Vastral Metro",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T09:30:00Z"
+  },
+  {
+    "id": "SAMPLE-004",
+    "text": "The washroom at GEC station is extremely dirty and smells terrible. Very unhygienic.",
+    "language": "en",
+    "station": "GEC",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T10:00:00Z"
+  },
+  {
+    "id": "SAMPLE-005",
+    "text": "Toilet bahut ganda chhe, safai bilkul nahi hoti, badbu aati hai",
+    "language": "hi",
+    "station": "Maninagar",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T10:30:00Z"
+  },
+  {
+    "id": "SAMPLE-006",
+    "text": "Station par kacharo pado chhe, safai thati nathi, badbu ave chhe",
+    "language": "gu",
+    "station": "Sector 28",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T11:00:00Z"
+  },
+  {
+    "id": "SAMPLE-007",
+    "text": "I was overcharged for my metro token. I paid Rs 40 but the correct fare is Rs 25. I need a refund.",
+    "language": "en",
+    "station": "Kalupur",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T11:30:00Z"
+  },
+  {
+    "id": "SAMPLE-008",
+    "text": "Mujhe ticket me 20 rupaye jyada kaat liye gaye, refund chahiye please",
+    "language": "hi",
+    "station": "Shreyas",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T12:00:00Z"
+  },
+  {
+    "id": "SAMPLE-009",
+    "text": "Metro card recharge karvano prayas karo toh machine kaam nathi karti — cannot recharge my card at ATVM",
+    "language": "mixed_gu_en",
+    "station": "Thaltej",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T12:30:00Z"
+  },
+  {
+    "id": "SAMPLE-010",
+    "text": "The lift at Riverfront station is stuck between floors. Two people are trapped inside!",
+    "language": "en",
+    "station": "Riverfront",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T13:00:00Z"
+  },
+  {
+    "id": "SAMPLE-011",
+    "text": "Lift kaam nathi karvati, andar fas gaya chhu, madad karo",
+    "language": "gu",
+    "station": "Kalupur",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T13:30:00Z"
+  },
+  {
+    "id": "SAMPLE-012",
+    "text": "The escalator at GEC is making loud grinding noises and is very slow. It should be repaired.",
+    "language": "en",
+    "station": "GEC",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T14:00:00Z"
+  },
+  {
+    "id": "SAMPLE-013",
+    "text": "The ticket checker was extremely rude to my elderly mother and shouted at her. This is unacceptable.",
+    "language": "en",
+    "station": "Kalupur",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T14:30:00Z"
+  },
+  {
+    "id": "SAMPLE-014",
+    "text": "Guard ne mujhse bahut bura vyavhar kiya aur insult kiya, bahut rude tha",
+    "language": "hi",
+    "station": "Vastral Metro",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T15:00:00Z"
+  },
+  {
+    "id": "SAMPLE-015",
+    "text": "Karmachari no vyavhar bahut kharab chhe, andar ghusi jata rude thashe",
+    "language": "gu",
+    "station": "Maninagar",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T15:30:00Z"
+  },
+  {
+    "id": "SAMPLE-016",
+    "text": "The metro was delayed by 25 minutes today. No announcement was made. Very inconvenient.",
+    "language": "en",
+    "station": "Sector 28",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T16:00:00Z"
+  },
+  {
+    "id": "SAMPLE-017",
+    "text": "Bija platform par dhuan avi rayo chhe, koi aag lagi chhe ke? Please check karo",
+    "language": "mixed_gu_en",
+    "station": "Apparel Park",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T16:30:00Z"
+  },
+  {
+    "id": "SAMPLE-018",
+    "text": "The air conditioning on the train was not working. It was extremely hot and uncomfortable.",
+    "language": "en",
+    "station": "Thaltej",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T17:00:00Z"
+  },
+  {
+    "id": "SAMPLE-019",
+    "text": "Mujhe metro card balance check karna tha par machine kharab thi, kisi ne help nahi ki",
+    "language": "mixed_hi_en",
+    "station": "Shreyas",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T17:30:00Z"
+  },
+  {
+    "id": "SAMPLE-020",
+    "text": "There is a suspicious bag left unattended on Platform 1. It has been there for 30 minutes. Please investigate.",
+    "language": "en",
+    "station": "Kalupur",
+    "source_channel": "Import Batch",
+    "timestamp": "2026-10-01T18:00:00Z"
+  }
+]
